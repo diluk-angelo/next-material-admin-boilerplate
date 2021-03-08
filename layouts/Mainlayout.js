@@ -57,14 +57,16 @@ const Mainlayout = ({children}) => {
         
   
          <Sidebar />
-   
-   
+      
+      <Appbar />
+     
         <main className={classes.content}>
           <div className={classes.toolbar} />
          
           {children}
           
         </main>
+        
       </div>
     );
 }

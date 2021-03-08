@@ -67,7 +67,7 @@ export default function Sidebar(props) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <Link href="/" passHref className={classes.link}>
+        <Link href="/"  className={classes.link}>
           <ListItem button component="a">
             <ListItemIcon>
               <HomeIcon />
@@ -76,7 +76,7 @@ export default function Sidebar(props) {
           </ListItem>
         </Link>
 
-        <Link href="/about" passHref className={classes.link}>
+        <Link href="/about"  className={classes.link}>
           <ListItem button component="a">
             <ListItemIcon>
               <HomeIcon />

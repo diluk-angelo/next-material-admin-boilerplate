@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useContext, useEffect}from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -9,6 +9,8 @@ import Copyright from '../src/Copyright';
 import { DataGrid,GridToolbar,GridToolbarContainer,
   GridToolbarExport,
   GridFilterToolbarButton,GridDensitySelector} from '@material-ui/data-grid';
+
+  import {useDispatchAppbar} from '../components/globalContext';
 
   function CustomToolbar() {
     return (
@@ -22,6 +24,18 @@ import { DataGrid,GridToolbar,GridToolbarContainer,
   }
 
 export default function About() {
+  
+
+  const dis = useDispatchAppbar();
+
+  React.useEffect(() => {
+    dis({
+      type:"SET",
+      payload:"ABOUT"
+    })
+   
+   }, [])
+
   const columns = [
     { field: 'test', hide:true },
     { field: 'id', headerName: 'ID', width: 70 },
@@ -58,6 +72,11 @@ export default function About() {
           thisRow[f] = params.getValue(f);
         });
         console.log(thisRow);
+
+        dis({
+          type:'SET',
+          payload:thisRow.firstName
+        })
         }
         return <Button onClick={add}>Click</Button>;
       }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useContext} from 'react';
 import Link from '../src/Link';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-
+import {useAppbar} from '../components/globalContext';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-export default function Appbar({title}) {
+export default function Appbar() {
+  const appBarTitle = useAppbar();
 
     const classes = useStyles();
     const handleDrawerToggle = () => {
@@ -34,6 +35,7 @@ export default function Appbar({title}) {
       };
 
   return (
+
     <AppBar position="fixed" className={classes.appBar}>
        
     <Toolbar>
@@ -47,7 +49,7 @@ export default function Appbar({title}) {
         <MenuIcon />
       </IconButton>
       <Typography variant="h6" noWrap>
-        {title}
+         {appBarTitle}
       </Typography>
     </Toolbar>
   </AppBar>
