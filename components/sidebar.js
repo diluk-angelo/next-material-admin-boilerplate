@@ -12,6 +12,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
+import UserIcon from "@material-ui/icons/PersonAdd";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
@@ -82,6 +83,15 @@ export default function Sidebar(props) {
               <HomeIcon />
             </ListItemIcon>
             <ListItemText primary="About" />
+          </ListItem>
+        </Link>
+
+        <Link href="/admin/users"  className={classes.link}>
+          <ListItem button component="a">
+            <ListItemIcon>
+              <UserIcon />
+            </ListItemIcon>
+            <ListItemText primary="Users" />
           </ListItem>
         </Link>
 
