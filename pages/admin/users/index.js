@@ -15,7 +15,7 @@ import IconButton from "@material-ui/core/IconButton";
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import UserTable from '../../../components/users/Table';
-
+import { useRouter } from 'next/router'
 const useStyles = makeStyles((theme) => ({
     paper: {
         maxWidth: 936,
@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function Users() {
+  const router = useRouter();
   const classes = useStyles();
   const dis = useDispatchAppbar();
   useEffect(() => {
@@ -48,6 +49,10 @@ export default function Users() {
       payload: "User Management",
     });
   }, []);
+
+  function add(){
+    router.push('/admin/users/add');
+  }
   return (
     <>
       <Paper className={classes.paper}>
@@ -61,7 +66,7 @@ export default function Users() {
               
             </Grid>
             <Grid item>
-              <Button variant="contained" color="primary" className={classes.addUser}>
+              <Button variant="contained" color="primary" className={classes.addUser} onClick={add}>
                 Add user
               </Button>
               <Tooltip title="Reload">

@@ -66,7 +66,7 @@ export default function Table (){
     
             
             }
-            return <Button variant="contained" onClick={add} varitan color="primary">Manage</Button>;
+            return <Button variant="contained" onClick={add}  color="primary">Manage</Button>;
           }
         }
       ];
